@@ -176,7 +176,7 @@ export default async function ($element, layout, self, qlik, $) {
 
 
 
-
+	return qlik.Promise.resolve();
 
 
 	// self.resize();

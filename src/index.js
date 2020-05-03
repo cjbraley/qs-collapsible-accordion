@@ -23,7 +23,7 @@ window.define(['qlik', 'jquery'], function(qlik, $) {
 		support: {
 			snapshot: true,
 			export: true,
-			exportData: true
+			exportData: false
 		}
 	}
 })
