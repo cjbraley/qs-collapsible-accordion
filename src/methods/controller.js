@@ -8,9 +8,12 @@ export default [
 		$scope.data = {};
 		$scope.searchString = '';
 
-
 		// need to keep the state of what is expanded and what is collapsed
 		// $scope.state = {};
+
+		$scope.updateStyle = function(event, property, val){
+			event.currentTarget.style[property] = val;
+		}
 
 
 		$scope.toggleExpanded = function (event, item) {
@@ -84,7 +87,7 @@ export default [
 				let children = arrRow.children;
 				if (arrRow.value && text.length > 2) {
 					const exp = new RegExp(text, "gi")
-					value = value.replace(exp, `<span class="highlight">$&</span>`);
+					value = value.replace(exp, `<span style="background-color: ${$scope.props.highlightColor}">$&</span>`);
 				}
 				if (arrRow.children.length > 0) {
 					children = $scope.highlightSearchText(arrRow.children, text)

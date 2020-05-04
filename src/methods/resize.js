@@ -5,14 +5,6 @@ export default function ($element, layout) {
 	// console.log("Resize ran")
 
 
-
-	/////////////////////////////
-	/// Helper functions
-	////////////////////////////
-
-
-
-
 	// console.log("resize ended")
 	return;
 

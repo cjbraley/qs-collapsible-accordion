@@ -1,5 +1,5 @@
 {
-  "extension": "Collapsible Accordion",
+  "extension": "QS Collapsible Accordion",
   "mode": "compile",
   "output": "./dist",
   "compile": {

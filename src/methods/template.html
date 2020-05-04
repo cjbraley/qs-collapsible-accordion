@@ -1,24 +1,47 @@
 <script type="text/ng-template" id="recursiveComponent">
-    <div class="accordion__row" ng-class="{'accordion__row--last': child.children.length === 0}" ng-click="toggleExpanded($event, child)">
+    <div 
+        class="accordion__row" 
+        ng-class="{'accordion__row--last': child.children.length === 0}" 
+        ng-click="toggleExpanded($event, child)"
+        ng-style="{'backgroundColor': child.isParent ? props.parentItemBackgroundColor : child.children.length == 0 ? props.lastItemBackgroundColor : props.subItemBackgroundColor}" 
+        ng-mouseenter="updateStyle($event, 'backgroundColor', child.isParent ? props.parentItemBackgroundColorHover : child.children.length == 0 ? props.lastItemBackgroundColorHover : props.subItemBackgroundColorHover)" 
+        ng-MouseOut="updateStyle($event, 'backgroundColor', child.isParent ? props.parentItemBackgroundColor : child.children.length == 0 ? props.lastItemBackgroundColor : props.subItemBackgroundColor)">
         <span  class="accordion__text" ng-bind-html="child.displayValue"></span>  
     </div>
     <div class="accordion__children" ng-class="{'expanded': child.expanded}"  ng-if="child.children.length > 0">
         <ul ng-if="child.children && child.search && child.included" class="accordion__sub-menu" ng-class="{'expanded': child.expanded}">
-            <li ng-if="child.search && child.included" ng-repeat="child in child.children track by child.id" class="accordion__sub-item" ng-class="{'accordion__sub-item--last': child.children.length === 0}" ng-include="'recursiveComponent'"></li>
+            <li ng-if="child.search && child.included" 
+                ng-include="'recursiveComponent'"
+                ng-repeat="child in child.children track by child.id" 
+                class="accordion__sub-item" 
+                ng-class="{'accordion__sub-item--last': child.children.length === 0}" 
+                ng-style="{marginLeft: child.children.length == 0 ? props.lastItemIndent : false}"></li>
         </ul>
     </div>
 </script>
 
 <div class="accordion__controls-container">
-    <!-- <label for="search" class="accordion__label" ">Search</label> -->
-    <input type="text" name="search" id="search" class="accordion__input" placeholder="Search" ng-model="searchString" ng-change="searchUpdate(searchString)">
-    <button class="accordion__btn accordion__btn--selection" ng-click="expandAll()">Expand All</button>
-    <button class="accordion__btn accordion__btn--selection" ng-click="collapseAll()">Collapse All</button>
+    <input type="text" class="accordion__input" placeholder="Search" ng-model="searchString" ng-change="searchUpdate(searchString)">
+    <button class="accordion__btn accordion__btn--selection" 
+        ng-style="{'backgroundColor': props.buttonBackgroundColor}" 
+        ng-mouseenter="updateStyle($event, 'backgroundColor', props.buttonBackgroundColorHover)" 
+        ng-MouseOut="updateStyle($event, 'backgroundColor', props.buttonBackgroundColor)" 
+        ng-click="expandAll()"
+        >Expand All</button>
+    <button class="accordion__btn accordion__btn--selection" 
+        ng-style="{'backgroundColor': props.buttonBackgroundColor}" 
+        ng-mouseenter="updateStyle($event, 'backgroundColor', props.buttonBackgroundColorHover)" 
+        ng-MouseOut="updateStyle($event, 'backgroundColor', props.buttonBackgroundColor)" 
+        ng-click="collapseAll()"
+        >Collapse All</button>
 </div>
 <div class="accordion__chart-container">
     <div>
         <ul class="accordion__parent-menu">
-            <li ng-repeat="child in display track by child.id" class="accordion__parent-item" ng-if="child.search && child.included" ng-include="'recursiveComponent'"></li>
+            <li ng-repeat="child in display track by child.id" 
+            class="accordion__parent-item" 
+            ng-if="child.search && child.included" 
+            ng-include="'recursiveComponent'"></li>
         </ul>
     </div>
 </div>
