@@ -5,7 +5,7 @@ Qlik Sense extension that provides a collapsible accordion of arbitrary depth. T
 
 # Installation
 
-Download [dist/QS Collapsible Accordion.zip](https://github.com/cjbraley/qs-collapsible-accordion/blob/master/dist/QS%20Collapsible%20Accordion.zip), upload to Qlik server or extract to appropriate folder.
+Download [dist/QS Collapsible Accordion.zip](https://github.com/cjbraley/qs-collapsible-accordion/raw/master/dist/QS%20Collapsible%20Accordion.zip), upload to Qlik server or extract to appropriate folder.
 
 Qlik Sense Desktop: unzip to a directory under Documents/Qlik/Sense/Extensions.
 
