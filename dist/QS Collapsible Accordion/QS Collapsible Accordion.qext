@@ -1,0 +1,15 @@
+{
+	"name": "QS Collapsible Accordion",
+	"description": "Collapsible accordion used to display definitions, etc.",
+	"type": "visualization",
+	"version": "1.1.0",
+	"icon": "extension",
+	"author": "Chris Braley",
+	"homepage": "",
+	"keywords": "qlik-sense, visualization",
+	"license": "",
+	"repository": "",
+	"dependencies": {
+		"qlik-sense": ">=3.0.x"
+	}
+}
