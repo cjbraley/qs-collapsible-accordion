@@ -1,4 +1,4 @@
-# qs-variable-drill
+# QS Collapsible Accordion
 Qlik Sense extension that provides a collapsible accordion of arbitrary depth. The intended purpose is to display hierarchical data, e.g. a glossary with different categories.
 
 ![Thumb](https://github.com/cjbraley/qs-collapsible-accordion/blob/master/demo/demo.gif)
